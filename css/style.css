@@ -10036,7 +10036,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .popup .popup__inner {
   max-width: 620px;
-  margin: 0 auto;
+  margin: 70px auto 0;
   padding: 70px 90px 95px;
   background-color: #3D464D;
   color: #FFF;
