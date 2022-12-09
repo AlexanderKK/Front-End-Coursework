@@ -7,6 +7,14 @@ const closeBtnRegister = document.querySelector(".popup--register .popup__close"
 const errorMsgs = document.querySelectorAll(".errorMsg");
 const loginMsg = document.querySelector(".loginMsg");
 
+function windowStyles(overflow, pointerEvents) {
+	document.querySelector('html').style.overflowY = overflow;
+	document.querySelector('body').style.overflowY = overflow;
+	
+	document.querySelector('html').style.pointerEvents = pointerEvents;
+	document.querySelector('body').style.pointerEvents = pointerEvents;
+}
+
 //Login Popup
 for (linkLogin of linksLogin) {
 	linkLogin.addEventListener("mousedown", function() {
@@ -17,12 +25,16 @@ for (linkLogin of linksLogin) {
 				popup.classList.add("is-active");
 			}
 		}
+
+		windowStyles("hidden", "none");
 	});
 }
 
 //Close Btn Login
 closeBtnLogin.addEventListener("mousedown", function() {
 	this.parentElement.parentElement.classList.remove("is-active");
+
+	windowStyles("", "all");
 });
 
 //Register Popup
@@ -38,26 +50,36 @@ for (linkRegister of linksRegister) {
 				popup.classList.remove("is-active");
 			}
 		}
+
+		windowStyles("hidden", "none");
 	});
 }
 
 //Close Btn Register
 closeBtnRegister.addEventListener("mousedown", function() {
 	this.parentElement.parentElement.classList.remove("is-active");
+
+	windowStyles("", "all");
 });
 
 //Close Popups On Background Click
-window.addEventListener("mousedown", function(evt) {
-	for	(const popup of popups) {
-		if(evt.target == popup) {
-			popup.classList.remove("is-active");
+// window.addEventListener("mousedown", function(evt) {
+// 	for	(const popup of popups) {
+// 		if(evt.target == popup) {
+// 			popup.classList.remove("is-active");
 
-			for	(const errorMsg of errorMsgs) {
-				errorMsg.classList.add("hidden");
-			}
-		}
-	}
-});
+// 			for	(const errorMsg of errorMsgs) {
+// 				errorMsg.classList.add("hidden");
+// 			}
+
+// 			document.querySelector('html').style.overflowY = "";
+// 			document.querySelector('body').style.overflowY = "";
+			
+// 			document.querySelector('html').style.pointerEvents = "all";
+// 			document.querySelector('body').style.pointerEvents = "all";
+// 		}
+// 	}
+// });
 
 //Close Popups On Escape Key
 window.addEventListener("keyup", function(evt) {
@@ -65,5 +87,7 @@ window.addEventListener("keyup", function(evt) {
 		for	(const popup of popups) {
 			popup.classList.remove("is-active");
 		}
+
+		windowStyles("", "all");
 	}
 });

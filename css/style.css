@@ -10017,12 +10017,13 @@ a.text-dark:hover, a.text-dark:focus {
   right: 0;
   width: 100%;
   height: 100%;
-  z-index: 101;
-  padding-top: 20px;
+  z-index: 1001;
+  padding: 20px 0;
   background-color: #312f2f87;
   opacity: 0;
   pointer-events: none;
   transition: opacity .6s;
+  overflow-y: auto;
 }
 
 .popup.is-active {
@@ -10036,7 +10037,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .popup .popup__inner {
   max-width: 620px;
-  margin: 70px auto 0;
+  margin: 30px auto;
   padding: 70px 90px 95px;
   background-color: #3D464D;
   color: #FFF;
@@ -10045,9 +10046,9 @@ a.text-dark:hover, a.text-dark:focus {
   transition: transform .5s ease-in-out;
 }
 
-@media(max-width: 992px) {
+@media(max-width: 768px) {
   .popup .popup__inner {
-    padding: 40px 40px 50px;
+    padding: 40px 40px 55px;
     margin-top: 40px;
   }
 
